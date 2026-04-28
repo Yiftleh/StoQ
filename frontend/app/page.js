@@ -32,24 +32,34 @@ export default function Home() {
   }
 };
 
-  return (
-    <div style={{ padding: "20px" }}>
-      <h1>Productos</h1>
+return (
+  <div className="min-h-screen bg-gray-100 flex flex-col items-center p-6">
+  <h1 className="text-3xl font-bold mb-6">StoQ - Productos</h1>
 
-      <ProductForm onProductCreated={handleNewProduct} />
+  <div className="bg-white p-6 rounded-xl shadow-md w-full max-w-md">
+    <ProductForm onProductCreated={handleNewProduct} />
+  </div>
 
-      {products.map((p) => (
-        <div key={p.id_producto} style={{ marginBottom: "10px" }}>
-          {p.nombre} - ${p.precio}
-
-          <button
-            onClick={() => handleDelete(p.id_producto)}
-            style={{ marginLeft: "10px" }}
-          >
-            Eliminar
-          </button>
+  <div className="mt-6 w-full max-w-md">
+    {products.map((p) => (
+      <div
+        key={p.id_producto}
+        className="bg-white p-4 rounded-lg shadow flex justify-between items-center mb-3"
+      >
+        <div>
+          <p className="font-semibold">{p.nombre}</p>
+          <p className="text-gray-600">${p.precio}</p>
         </div>
-      ))}
-    </div>
+
+        <button
+          onClick={() => handleDelete(p.id_producto)}
+          className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
+        >
+          Eliminar
+        </button>
+      </div>
+    ))}
+  </div>
+</div>
   );
 }

@@ -36,30 +36,38 @@ export default function ProductForm({ onProductCreated }) {
         alert("Error al crear producto: " + errorText);    }
   };
 
-  return (
-    <form onSubmit={handleSubmit} style={{ marginBottom: "20px" }}>
-      <h2>Crear producto</h2>
+    return (
+   <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+  <h2 className="text-xl font-semibold mb-2">Crear producto</h2>
 
-      <input
-        placeholder="Nombre"
-        value={nombre}
-        onChange={(e) => setNombre(e.target.value)}
-      />
+  <input
+    className="border p-2 rounded"
+    placeholder="Nombre"
+    value={nombre}
+    onChange={(e) => setNombre(e.target.value)}
+  />
 
-      <input
-        placeholder="Descripción"
-        value={descripcion}
-        onChange={(e) => setDescripcion(e.target.value)}
-      />
+  <input
+    className="border p-2 rounded"
+    placeholder="Descripción"
+    value={descripcion}
+    onChange={(e) => setDescripcion(e.target.value)}
+  />
 
-      <input
-        placeholder="Precio"
-        value={precio}
-        onChange={(e) => setPrecio(e.target.value)}
-        type="number"
-      />
+  <input
+    className="border p-2 rounded"
+    placeholder="Precio"
+    value={precio}
+    onChange={(e) => setPrecio(e.target.value)}
+    type="number"
+  />
 
-      <button type="submit">Crear</button>
-    </form>
-  );
+  <button
+    type="submit"
+    className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+  >
+    Crear
+  </button>
+</form>
+    );
 }
